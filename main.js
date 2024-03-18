@@ -79,3 +79,28 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+
+ const createUsernames = function (accounts) {
+
+  accounts.forEach( account => {
+
+    account.username = account.owner.toLowerCase().split(" ").map( word => word[0]).join("");
+  });
+
+ }
+
+ createUsernames(accounts); 
+
+ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+
+ //acc - accumulator is like snowball
+ const calculateBalance = function (movements) {
+   const balance = movements.reduce((acc, mov) => acc + mov, 0);
+   labelBalance.innerHTML = `${balance}€`;
+ }
+
+ calculateBalance(account1.movements);
+
+
